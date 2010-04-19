@@ -1,3 +1,3 @@
 Check out http://sandbox.cascadeserver.com/.  Site is david.klanac.
 
-You will need to drop in the calendar-library, XSLT formats and template into your site.  Follow the screenshots of the index blocks to set them up.  Lastly, assemble the usual Cascade Server components and 'events' directory to finally assemble an index page with the calendar.  A published version of the calendar is located within the files for your reference.
+You will need to drop in the calendar-library, XSLT formats and template into your site.  Follow the screenshots of the index blocks to set them up.  Lastly, assemble the usual Cascade Server components and 'events' directory to finally construct an index page with the calendar.  A published version of the calendar is located within the files for your reference.
