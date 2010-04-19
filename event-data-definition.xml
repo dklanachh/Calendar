@@ -1,0 +1,8 @@
+<system-data-structure>
+  <text type="datetime" identifier="starts" label="Starts" required="true"/>
+  <text type="datetime" identifier="ends" label="Ends" required="true"/>
+  <text type="checkbox" identifier="all-day" label="All Day">
+    <checkbox-item value="Yes"/>
+  </text>
+  <text wysiwyg="true" identifier="details" label="Details"/>
+</system-data-structure>
