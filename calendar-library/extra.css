@@ -9,3 +9,96 @@ body {
 		width: 900px;
 		margin: 0 auto;
 		}
+        
+#calendar-wrapper
+{
+    position: relative;
+}
+
+#calendars
+{
+    position: absolute;
+    top: 100px;
+    left: 100px;
+    padding: 0 10px;
+    text-align: left;
+    background: #eaf4fd;
+    border: 1px solid #C5DBEC;
+}
+
+#calendars a span
+{
+    display: block;
+    height: 16px;
+    width: 16px;
+    margin-right: 5px;
+    float: left;
+}
+
+#calendars a
+{
+    color: #000;
+    margin: 16px 0;
+    display: block;
+}
+
+#calendars #trigger-red
+{
+    padding: 0.3em;
+}
+
+#calendars #trigger-red span
+{
+    background: #a32929;
+}
+
+#calendars #trigger-blue span
+{
+    background: #274d9a;
+}
+
+#calendars #trigger-green span
+{
+    background: #0d7813;
+}
+
+#calendars #trigger-purple span
+{
+    background: #5229a3;
+}
+
+
+.blue,
+	  .fc-agenda .blue .fc-event-time,
+	  .blue a {
+	border-color: #274d9a;     
+	background-color: #274d9a;
+	color: white; 
+    }    
+        
+.red,
+	  .fc-agenda .red .fc-event-time,
+	  .red a {
+	      background-color: #a32929;
+	      border-color: #a32929;
+	      color: white;
+	      }
+
+.purple,
+	  .fc-agenda .purple .fc-event-time,
+	  .purple a {
+	      background-color: #5229a3;
+	      border-color: #5229a3;
+	      color: white;
+	      }          
+          
+ 
+.green,
+	  .fc-agenda .green .fc-event-time,
+	  .green a {
+	      background-color: #0d7813;
+	      border-color: #0d7813;
+	      color: white;
+	      }                   
+          
+          
