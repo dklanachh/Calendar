@@ -2,117 +2,140 @@
 <head>
 <link href="calendar-library/redmond/theme.css" rel="stylesheet" type="text/css"/>
 <link href="calendar-library/fullcalendar.css" rel="stylesheet" type="text/css"/>
-<link href="calendar-library/extra.css" rel="stylesheet" type="text/css"/>
+<link href="calendar-library/extra-horizontal.css" rel="stylesheet" type="text/css"/>
 <script src="calendar-library/jquery/jquery.js" type="text/javascript"></script>
 <script src="calendar-library/jquery/ui.core.js" type="text/javascript"></script>
 <script src="calendar-library/jquery/ui.draggable.js" type="text/javascript"></script>
 <script src="calendar-library/jquery/ui.resizable.js" type="text/javascript"></script>
 <script src="calendar-library/fullcalendar-hh.js" type="text/javascript"></script>
 <script src="calendar-library/main.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-
-    $(document).ready(function() {
-
-    var date = new Date();
-    var d = date.getDate();
-    var m = date.getMonth();
-    var y = date.getFullYear();
-
-    $('#calendar').fullCalendar({
-    theme: true,
-    header: {
-    left: 'prev,next today',
-    center: 'title',
-    right: 'month,agendaWeek,agendaDay'
-    },
-    defaultView: 'agendaWeek',
-    editable: false,
-    events: [
-
-    {
-
-    title: 'Adam\'s Event',
-    start: '2010-04-20 15:00',
-    end: '2010-04-20 16:30',
-    url: 'events/event3.html',
-    className: 'red',
-
-    allDay: false
-
-    },
-
-    {
-
-    title: 'Integrate Calendar into Default DB',
-    start: '2010-04-19 16:00',
-    end: '2010-04-19 17:00',
-    url: 'events/event2.html',
-    className: 'purple',
-
-    allDay: false
-
-    },
-
-    {
-
-    title: 'Another test event',
-    start: '2010-04-22 12:00',
-    end: '2010-04-22 13:00',
-    url: 'events/event2.html',
-    className: 'purple',
-
-    allDay: false
-
-    },
-
-    {
-
-    title: 'Weekly Operations Meeting',
-    start: '2010-04-22 14:00',
-    end: '2010-04-22 15:30',
-    url: 'events/event1.html',
-    className: 'green',
-
-    allDay: false
-
-    },
-
-    {
-
-    title: 'Office Hours',
-    start: '2010-04-19 09:00',
-    end: '2010-04-19 10:00',
-    url: 'events/event.html',
-    className: 'blue',
-
-    allDay: true
-
-    },
-
-    ]
-    });
-
-    toggleCalendar("red", "trigger-red");
-    toggleCalendar("blue", "trigger-blue");
-    toggleCalendar("purple", "trigger-purple");
-    toggleCalendar("green", "trigger-green");
-
-    });
-
-
-</script>
-
 </head>
 <body>
-<div id="calendar-wrapper">
-    <div id="calendars">
-        <a href="javascript:void()" id="trigger-red" class="ui-state-default"><span> </span>Master</a>
-        <a href="javascript:void()" id="trigger-blue"><span> </span>Intramurals</a>
-        <a href="javascript:void()" id="trigger-purple"><span> </span>Admissions</a>
-        <a href="javascript:void()" id="trigger-green"><span> </span>Student Affairs</a>
-    </div>
-    <div id="calendar"></div>
-</div>
+<script type="text/javascript">
+	
+	$(document).ready(function() {
+	
+		var date = new Date();
+		var d = date.getDate();
+		var m = date.getMonth();
+		var y = date.getFullYear();
+		
+		$('#calendar').fullCalendar({
+			theme: true,
+			header: {
+				left: 'prev,next today',
+				center: 'title',
+				right: 'month,agendaWeek,agendaDay'
+			},
+			defaultView: 'month',
+			editable: false,
+			events: [
+							
+	{
+		
+		title: 'Test me',
+			start: '2010-04-20 13:00',
+			end:  '2010-04-20 14:00',
+			
+				className: 'blue',
+				
+			url: 'events/event5.html',
+			
+			
+					allDay: false
+				
+	},
+	
+	{
+		
+		title: 'David\'s Test Event',
+			start: '2010-04-23 13:00',
+			end:  '2010-04-23 01:15',
+			
+				className: 'green',
+				
+			url: 'events/event4.html',
+			
+			
+					allDay: false
+				
+	},
+	
+	{
+		
+		title: 'Adam\'s Event',
+			start: '2010-04-20 15:00',
+			end:  '2010-04-20 16:30',
+			
+				className: 'purple',
+				
+			url: 'events/event3.html',
+			
+			
+					allDay: false
+				
+	},
+	
+	{
+		
+		title: 'Integrate Calendar into Default DB',
+			start: '2010-04-19 16:00',
+			end:  '2010-04-20 17:00',
+			
+				className: 'blue',
+				
+			url: 'events/event2.html',
+			
+			
+					allDay: true
+				
+	},
+	
+	{
+		
+		title: 'Weekly Operations Meeting',
+			start: '2011-01-06 14:00',
+			end:  '2011-01-06 15:30',
+			
+				className: 'red',
+				
+			url: 'events/event1.html',
+			
+			
+					allDay: false
+				
+	},
+	
+	{
+		
+		title: 'Office Hours',
+			start: '2010-04-19 09:00',
+			end:  '2010-04-19 10:00',
+			
+				className: 'red',
+				
+			url: 'events/event.html',
+			
+			
+					allDay: true
+				
+	},
+	
+			]
+		});
+
+        		 toggleCalendar("blue", "trigger-blue");
+    
+        		 toggleCalendar("green", "trigger-green");
+    
+        		 toggleCalendar("purple", "trigger-purple");
+    
+        		 toggleCalendar("red", "trigger-red");
+    
+
+
+		
+	});
+</script><div id="calendar-wrapper"><div id="calendars"><a href="javascript:void()" id="trigger-blue"><span></span>Academic</a><a href="javascript:void()" id="trigger-green"><span></span>Student Affairs</a><a href="javascript:void()" id="trigger-purple"><span></span>Alumni</a><a href="javascript:void()" id="trigger-red"><span></span>Master</a></div><div id="calendar"></div></div>
 </body>
 </html>

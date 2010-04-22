@@ -1,7 +1,16 @@
-<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+<xsl:stylesheet extension-element-prefixes="exsl str set" version="1.0" xmlns:exsl="http://exslt.org/common" xmlns:set="http://exslt.org/sets" xmlns:str="http://exslt.org/strings" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 	<xsl:include href="/_internal/formats/format-date"/>
 	<xsl:output indent="yes" method="xml" omit-xml-declaration="yes"/>
-
+	<xsl:variable name="categories" select="set:distinct(//system-page/dynamic-metadata[name='categories']/value)"/>
+	<xsl:variable name="classes">
+      		<dict>
+         		<item key="red">Master</item>
+         		<item key="blue">Academic</item>
+         		<item key="green">Student Affairs</item>
+         		<item key="purple">Alumni</item>
+      		</dict>
+   	</xsl:variable>
+	
 	
 	<xsl:template match="/">		
 	<script type="text/javascript">
@@ -20,18 +29,49 @@
 				center: 'title',
 				right: 'month,agendaWeek,agendaDay'
 			},
-			defaultView: 'agendaWeek',
+			defaultView: 'month',
 			editable: false,
 			events: [
 							<xsl:apply-templates select="//system-page"/>
 			]
 		});
+<xsl:for-each select="$categories">
+    <xsl:variable name="category" select="."/>
+    	<xsl:for-each select="exsl:node-set($classes)/dict/item">
+    <xsl:if test=". = $category">
+        		 toggleCalendar("<xsl:value-of select="@key"/>", "trigger-<xsl:value-of select="@key"/>");
+    </xsl:if>
+    	</xsl:for-each>
+    </xsl:for-each>
+
+
 		
 	});
 </script>
+    <!--Test Value: <xsl:value-of select="name(./node())"/>-->
+<div id="calendar-wrapper">
+    <div id="calendars">
+    <!--xsl:for-each select="exsl:node-set($classes)/dict/item"-->
+    <xsl:for-each select="$categories">
+    <xsl:variable name="category" select="."/>
+    	<xsl:for-each select="exsl:node-set($classes)/dict/item">
+    <xsl:if test=". = $category">
+        <a href="javascript:void()">
+        	<xsl:attribute name="id">trigger-<xsl:value-of select="@key"/></xsl:attribute>
+        	<!--xsl:if test="@key = 'red'"><xsl:attribute name="class">ui-state-default</xsl:attribute></xsl:if-->
+        	<span> </span><xsl:value-of select="."/>
+        </a>
+    </xsl:if>
+    	</xsl:for-each>
+    </xsl:for-each>
+    </div>
+    <div id="calendar"></div>
+</div>
+
 	</xsl:template>
 	
 	<xsl:template match="system-page">
+	<xsl:variable name="metadata-value" select="dynamic-metadata[name='categories']/value"/>
 	{
 		[system-view:internal]target: true,[/system-view:internal]
 		title: '<xsl:call-template name="replace-string">
@@ -47,6 +87,11 @@
 				<xsl:with-param name="date" select="system-data-structure/ends"/>
 				<xsl:with-param name="mask" select="'yyyy-mm-dd HH:MM'"/>
 			</xsl:call-template>',
+			<xsl:for-each select="exsl:node-set($classes)/dict/item">
+			<xsl:if test=". = $metadata-value">
+				className: '<xsl:value-of select="@key"/>',
+				</xsl:if>
+			</xsl:for-each>
 			url: '[system-asset]<xsl:value-of select="path"/>[/system-asset]',
 			
 			<xsl:choose>
